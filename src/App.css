@@ -1,0 +1,11 @@
+.btn-brand{
+  background-color: #DC143C;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 10px;
+  color: white;
+  border:none;
+}
+.text-brand{
+  color:#DC143C;
+}

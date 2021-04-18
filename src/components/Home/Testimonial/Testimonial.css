@@ -1,0 +1,19 @@
+.reviews{
+    width: 80%;
+    margin: 5% 10%;
+}
+.reviews-header{
+    font-size: 30px;
+    color: #363958;
+    display: block;
+}
+.reviews-text{
+    font-family: 'Cuprum', sans-serif;
+}
+@media(max-width:688px){
+    .reviews-header{
+        margin: 100px 0px 100px 0px;
+        font-size: 50px;
+        text-align: center;
+    }
+    }

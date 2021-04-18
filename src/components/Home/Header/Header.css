@@ -1,0 +1,8 @@
+.header-container{
+    height:700px;
+    background-image: url('../../../images/work2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -5;
+    margin-bottom: 200px;
+}
