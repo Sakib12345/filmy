@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -8,25 +9,20 @@ const Navbar = () => {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white" href="/">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white" href="#">Reviews</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white" href="#">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-5 text-white" href="#">Contact Us</a>
-                        </li>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <Link to='/'>
+                            <button className='btn btn-default text-white'>Home</button>
+                        </Link> 
+                        <Link to='/dashboard'>
+                            <button className='btn btn-default text-white'>Dashboard</button>
+                        </Link> 
+                        <Link to='/review'>
+                            <button className='btn btn-default text-white'>Review</button>
+                        </Link> 
+                        
+                        <Link to='/'>
+                            <button className='btn btn-default text-white'>Contact Us</button>
+                        </Link> 
                     </ul>
                 </div>
             </div>

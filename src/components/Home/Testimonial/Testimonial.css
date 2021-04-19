@@ -10,6 +10,7 @@
 .reviews-text{
     font-family: 'Cuprum', sans-serif;
 }
+
 @media(max-width:688px){
     .reviews-header{
         margin: 100px 0px 100px 0px;
