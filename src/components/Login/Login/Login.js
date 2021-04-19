@@ -9,7 +9,7 @@ import { UserContext } from '../../../App';
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser);
+  console.log(loggedInUser)
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
@@ -21,8 +21,11 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
+      const user = result.user;
       const { displayName, email } = result.user;
-      const signedInUser = { name: displayName, email }
+      const signedInUser = { name: displayName, email: email };
+      const loggedInUser = {name: user.displayName, email: user.email, img: user.photoURL};
+      localStorage.setItem('user', JSON.stringify(loggedInUser));
       setLoggedInUser(signedInUser);
       storeAuthToken();
     }).catch(function (error) {
