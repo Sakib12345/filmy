@@ -1,23 +1,23 @@
 import React from 'react';
-import fluoride from '../../../images/001-dental.png';
-import cavity from '../../../images/tooth (1).png';
-import whitening from '../../../images/tooth.png';
+import cinematography from '../../../images/cinematography.png';
+import videoediting from '../../../images/videoediting.png';
+import motiongraphics from '../../../images/motiongraphics.png';
 import ServiceDetail from './ServiceDetail';
 
 const serviceData = [
     {
-        title:'Fluoride Treatment',
-        img:fluoride,
+        title:'Cinematography',
+        img:cinematography,
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio at ratione quos est asperiores!'
     },
     {
-        title:'Cavity Filing',
-        img:cavity,
+        title:'Video Editing',
+        img:videoediting,
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio at ratione quos est asperiores!'
     },
     {
-        title:'Teeth Whitening',
-        img:whitening,
+        title:'Motion Graphics',
+        img:motiongraphics,
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio at ratione quos est asperiores!'
     }
 ]
