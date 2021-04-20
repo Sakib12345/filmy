@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 
 const ServiceDetail = ({ serviceInfo }) => {
+
+    const user = JSON.parse(localStorage.getItem('user')) || {};
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/isAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: user.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsAdmin(data));
+    }, [])
 
     return (
         <div className='col-md-4'>
@@ -11,10 +24,22 @@ const ServiceDetail = ({ serviceInfo }) => {
                     <img style={{ height: '150px' }} src={serviceInfo.img} alt="img" />
                     <h5 className='text-brand mt-3 mb-3'>{serviceInfo.title}</h5>
                     <p className='text-secondary'>{serviceInfo.description}</p>
-                    <h5 className='text-brand mb-3'>Price: {serviceInfo.price} BDT</h5>
-                    <Link to={`/bookNow/${serviceInfo._id}`}>
-                        <button className='btn-brand'>Get Service</button>
-                    </Link>
+                    
+                    {
+                        !isAdmin && <div>
+                            <h5 className='text-brand mb-3'>Price: {serviceInfo.price} BDT</h5>
+                            <Link to={`/bookNow/${serviceInfo._id}`}>
+                                <button className='btn-brand'>Get Service</button>
+                            </Link>
+                        </div>
+                    }
+                    {
+                        isAdmin && <div>
+                            <Link to={`/manageService`}>
+                                <button className='btn-brand'>Manage Service</button>
+                            </Link>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

@@ -32,27 +32,46 @@ const Sidebar = () => {
                     {isAdmin &&
                         <div>
                             <li>
-                                <Link to="/dashboard" className="text-white">
-                                    <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Dashboard</button>
+                                <Link to="/orderList" className="text-white">
+                                    <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Order List</button>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/addServices" className="text-white">
+                                    <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Add Service</button>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/makeAdmin" className="text-white">
+                                    <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Make Admin</button>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/manageService" className="text-white">
+                                    <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Manage Service</button>
                                 </Link>
                             </li>
                         </div>
                     }
-                    <li>
-                        <Link to="/bookNow" className="text-white">
-                            <FontAwesomeIcon icon={faCalendar} /> <button className="btn btn-default text-white">Book</button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/bookingList" className="text-white">
-                            <FontAwesomeIcon icon={faUsers} /> <button className="btn btn-default text-white">Booking List</button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/review" className="text-white">
-                            <FontAwesomeIcon icon={faFileAlt} /> <button className="btn btn-default text-white">Review</button>
-                        </Link>
-                    </li>
+                    {
+                        !isAdmin && <div>
+                            <li>
+                                <Link to="/bookNow" className="text-white">
+                                    <FontAwesomeIcon icon={faCalendar} /> <button className="btn btn-default text-white">Book</button>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/bookingList" className="text-white">
+                                    <FontAwesomeIcon icon={faUsers} /> <button className="btn btn-default text-white">Booking List</button>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/review" className="text-white">
+                                    <FontAwesomeIcon icon={faFileAlt} /> <button className="btn btn-default text-white">Review</button>
+                                </Link>
+                            </li>
+                        </div>
+                    }
                 </ul>
                 <div>
                     <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <button className="btn btn-warning text-brand">Logout</button></Link>
