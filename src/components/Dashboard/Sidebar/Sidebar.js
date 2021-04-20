@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt, faUsers, faCalendar, faGripHorizontal } from '@fortawesome/free-solid-svg-icons';
-import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
+import { faSignOutAlt, faUsers, faCalendar, faGripHorizontal } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
+import firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from '../../Login/Login/firebase.config';
+import { UserContext } from '../../../App';
 
 const Sidebar = () => {
 
     const user = JSON.parse(localStorage.getItem('user')) || {};
     const [isAdmin, setIsAdmin] = useState(false);
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp(firebaseConfig);
+      }
 
     useEffect(() => {
         fetch('http://localhost:5000/isAdmin', {
@@ -19,6 +26,34 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [])
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [userlog, setUser] = useState({
+        isSignedIn: false,
+        name: '',
+        email: '',
+        password: '',
+    })
+    const handleSignOut = () => {
+        firebase.auth().signOut()
+            .then((res) => {
+                localStorage.clear();
+                sessionStorage.clear()
+                const signOutUser = {
+                    userSignedIn: false,
+                    name: '',
+                    email: '',
+                    error: '',
+                    success: false
+                }
+                setUser(signOutUser)
+                setLoggedInUser(signOutUser)
+                // Sign-out successful.
+            }).catch((error) => {
+                console.log(error)
+            })
+
+    }
 
     return (
         <div className='row'>
@@ -74,7 +109,7 @@ const Sidebar = () => {
                     }
                 </ul>
                 <div>
-                    <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <button className="btn btn-warning text-brand">Logout</button></Link>
+                     <FontAwesomeIcon icon={faSignOutAlt} /> <button onClick={handleSignOut} className="btn btn-warning text-black">Logout</button>
                 </div>
             </div>
         </div>
