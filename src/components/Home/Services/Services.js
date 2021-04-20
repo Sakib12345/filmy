@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceDetail from './ServiceDetail';
-
+import './Services.css'
 
 const Services = () => {
     const [services, setServices] = useState([]);
@@ -24,8 +24,8 @@ const Services = () => {
     // }
 
     return (
-        <section className='w-75' style={{marginLeft:'13.5%'}}>
-            <div className='text-center'>
+        <section className='w-75 ' style={{marginLeft:'13.5%'}}>
+            <div className='text-center servicesCss'>
                 {/* <button onClick={handleAll}>add all</button> */}
                 <h5 style={{ color: '#DC143C' }}>Our Services</h5>
                 <h2 style={{ color: '#3a4256' }}>Services We Provide</h2>

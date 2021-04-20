@@ -6,17 +6,17 @@ const infosData = [
     {   
         title: 'Opening Hour',
         icon: faClock,
-        description: 'We are open 7 days',
+        description: 'We are open 24/7',
         background: 'primary',
     },
     {   
         title: 'Visit Our Location',
         icon: faMapMarker,
-        description: 'Broklyn, NY 10003 USA',
+        description: 'Dhaka - 1205 , Dhanmondi',
         background: 'dark',
     },
     {   
-        title: 'Call Us Now',
+        title: 'Contact Us via phone',
         icon: faPhone,
         description: '01799432543',
         background: 'primary',

@@ -1,4 +1,5 @@
 import React from 'react';
+import './HeaderMain.css';
 
 const HeaderMain = () => {
     return (
@@ -14,7 +15,7 @@ const HeaderMain = () => {
 
             <div className="col-md-6">
                 
-                <iframe width="820" title="chaya" height="480" src="https://www.youtube.com/embed/0X-yhuUlruQ" ></iframe>
+                <iframe className='headerVideo' width="820" title="chaya" height="480" src="https://www.youtube.com/embed/0X-yhuUlruQ" ></iframe>
             </div>
         </main>
     );

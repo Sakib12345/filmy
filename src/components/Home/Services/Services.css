@@ -1,0 +1,8 @@
+.servicesCss{
+    margin-top: 10px;
+}
+@media screen and (max-width: 480px) {
+    .servicesCss{
+        margin-top: 120%;
+    }
+}

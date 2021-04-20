@@ -72,7 +72,7 @@ const Sidebar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/addServices" className="text-white">
+                                <Link to="/addService" className="text-white">
                                     <FontAwesomeIcon icon={faGripHorizontal} /> <button className="btn btn-default text-white">Add Service</button>
                                 </Link>
                             </li>
